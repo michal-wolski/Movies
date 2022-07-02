@@ -1,8 +1,7 @@
-import { movieApiClient } from './client';
+import axios from 'axios';
 
-export const reguestTrendingMovie = async () => {
-  const data = await movieApiClient.get(
-    `trending/movie/day?api_key=06a035835c96c01cd65869aee095376e`
-  );
-  return data;
-};
+const API_KEY = '06a035835c96c01cd65869aee095376e';
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+export const getTrendingMovies = async () =>
+  await axios.get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`);
