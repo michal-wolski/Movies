@@ -2,16 +2,19 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <div>
-      <ul>
-        <li>
-          <a href="url">Homepage</a>
+    <nav className="nav">
+      <a href="/" className="logo">
+        Filmoteka
+      </a>
+      <ul className="nav_ul">
+        <li className="nav_li">
+          <a href="/">Homepage</a>
         </li>
-        <li>
-          <a href="url">Movies</a>
+        <li className="nav_li">
+          <a href="/movies">Movies</a>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

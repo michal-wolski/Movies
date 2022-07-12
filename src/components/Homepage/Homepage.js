@@ -9,7 +9,6 @@ const Homepage = props => {
     getTrendingMovies()
       .then(({ data }) => setTrendingMovies(data.results))
       .catch(error => console.log(error));
-    console.log(trendingMovies);
   }, []);
   return (
     <section>

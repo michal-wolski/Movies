@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage/Homepage';
 import Movies from './Movies/Movies';
 import Navbar from './Navbar/Navbar';
@@ -7,9 +7,10 @@ import Navbar from './Navbar/Navbar';
 export const App = () => {
   return (
     <>
-      <Navbar />
-      <Homepage />
-      <Movies />
+      <Routes>
+        <Route path="/" element={<Navbar />} />
+        <Route path="/movies" element={<Movies />} />
+      </Routes>
     </>
   );
 };
