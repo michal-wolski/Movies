@@ -7,8 +7,9 @@ import Navbar from './Navbar/Navbar';
 export const App = () => {
   return (
     <>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Navbar />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<Movies />} />
       </Routes>
     </>
