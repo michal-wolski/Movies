@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import { Input } from 'rsuite';
 import { getMovieByQuery } from '../../api/requests';
 
 const Movies = props => {

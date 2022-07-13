@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from 'api/requests';
+import styles from './Homepage.module.css';
 
 const Homepage = props => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -11,11 +12,11 @@ const Homepage = props => {
       .catch(error => console.log(error));
   }, []);
   return (
-    <section>
+    <section className={styles.section}>
       <>
-        <h1>Trending today</h1>
+        {/* <h1>Trending today</h1> */}
 
-        <ul>
+        <ul className={styles.trendingList}>
           {trendingMovies.map(({ id, poster_path, title }) => (
             <li key={id}>
               <img
