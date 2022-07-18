@@ -1,10 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getTrendingMovies } from 'api/requests';
+import { getTrendingMovies, getMovieById } from 'api/requests';
 import styles from './Homepage.module.css';
+
+const { section, trendingList, trendingListItem } = styles;
 
 const Homepage = props => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  // const match = useMatch();
+  // const location = useLocation();
 
   useEffect(() => {
     getTrendingMovies()
@@ -12,18 +17,20 @@ const Homepage = props => {
       .catch(error => console.log(error));
   }, []);
   return (
-    <section className={styles.section}>
+    <section className={section}>
       <>
         {/* <h1>Trending today</h1> */}
 
-        <ul className={styles.trendingList}>
+        <ul className={trendingList}>
           {trendingMovies.map(({ id, poster_path, title }) => (
-            <li key={id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                alt={title}
-              />
-              <p>{title}</p>
+            <li key={id} className={trendingListItem}>
+              <Link to={'/'}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                  alt={title}
+                />
+                <p>{title}</p>
+              </Link>
             </li>
           ))}
         </ul>

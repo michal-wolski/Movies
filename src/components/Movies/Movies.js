@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { getMovieByQuery } from '../../api/requests';
+import styles from './Movies.module.css';
+
+const { moviesList, moviesListItem, form, container } = styles;
 
 const Movies = props => {
   const [query, setQuery] = useState('');
@@ -11,17 +15,43 @@ const Movies = props => {
     setQuery(value);
   };
 
-  const handleSubmitSearchMovie = query => {
-    // evt.preventDefault();
-    getMovieByQuery(query);
-    console.log(query);
+  const handleSubmitSearchMovie = evt => {
+    evt.preventDefault();
   };
 
+  useEffect(() => {
+    if (!query) return;
+    getMovieByQuery(query)
+      .then(({ data }) => setMovies(data.results))
+      .catch(error => console.log(error));
+    console.log(movies);
+  }, [query]);
+
   return (
-    <form>
-      <input id="searchInput" onChange={onChange}></input>
-      <button onSubmit={handleSubmitSearchMovie}>Search</button>
-    </form>
+    <div className={container}>
+      <form className={form} onSubmit={handleSubmitSearchMovie}>
+        <input type="text" id="searchInput" onChange={onChange}></input>
+        <button type="submit">Search</button>
+      </form>
+
+      <section>
+        <>
+          <ul className={moviesList}>
+            {movies.map(({ id, poster_path, title }) => (
+              <li key={id} className={moviesListItem}>
+                <Link to={'/'}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                    alt={title}
+                  />
+                  <p>{title}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      </section>
+    </div>
   );
 };
 
