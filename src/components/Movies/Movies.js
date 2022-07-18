@@ -24,14 +24,18 @@ const Movies = props => {
     getMovieByQuery(query)
       .then(({ data }) => setMovies(data.results))
       .catch(error => console.log(error));
-    console.log(movies);
   }, [query]);
 
   return (
     <div className={container}>
       <form className={form} onSubmit={handleSubmitSearchMovie}>
-        <input type="text" id="searchInput" onChange={onChange}></input>
-        <button type="submit">Search</button>
+        <input
+          type="text"
+          id="searchInput"
+          onChange={onChange}
+          placeholder="Search movie by title"
+        ></input>
+        {/* <button type="submit">Search</button> */}
       </form>
 
       <section>
