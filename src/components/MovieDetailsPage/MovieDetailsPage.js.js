@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { getMovieById } from 'api/requests';
 import styles from './MovieDetailsPage.module.css';
 
 const { container } = styles;
 
 const MoviesDetailPage = () => {
+  const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
-  const [movieId, setMovieId] = useState(13);
+  // const [movieId, setMovieId] = useState();
 
   useEffect(() => {
     if (!movieId) return;

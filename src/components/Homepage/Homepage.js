@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useMatch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getTrendingMovies, getMovieById } from 'api/requests';
 import styles from './Homepage.module.css';
@@ -24,7 +24,12 @@ const Homepage = props => {
         <ul className={trendingList}>
           {trendingMovies.map(({ id, poster_path, title }) => (
             <li key={id} className={trendingListItem}>
-              <Link to={'/'}>
+              <Link
+                to={{
+                  pathname: `/movies-detail-page/${id}`,
+                  // state: { from: { location } },
+                }}
+              >
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                   alt={title}

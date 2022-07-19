@@ -43,7 +43,11 @@ const Movies = props => {
           <ul className={moviesList}>
             {movies.map(({ id, poster_path, title }) => (
               <li key={id} className={moviesListItem}>
-                <Link to={'/'}>
+                <Link
+                  to={{
+                    pathname: `/movies-detail-page/${id}`,
+                  }}
+                >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                     alt={title}

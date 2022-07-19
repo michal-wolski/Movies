@@ -12,7 +12,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies-detail-page" element={<MoviesDetailPage />} />
+        <Route
+          path="/movies-detail-page/:movieId"
+          element={<MoviesDetailPage />}
+        />
       </Routes>
     </>
   );
