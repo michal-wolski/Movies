@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useLocation, useMatch } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getTrendingMovies, getMovieById } from 'api/requests';
+import { getTrendingMovies } from 'api/requests';
 import noImage from '../../images/notFound.png';
 import styles from './Homepage.module.css';
 
@@ -9,7 +9,6 @@ const { section, trendingList, trendingListItem } = styles;
 
 const Homepage = props => {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  // const match = useMatch();
   const location = useLocation();
 
   useEffect(() => {
@@ -25,12 +24,7 @@ const Homepage = props => {
         <ul className={trendingList}>
           {trendingMovies.map(({ id, poster_path, title }) => (
             <li key={id} className={trendingListItem}>
-              <Link
-                to={{
-                  pathname: `/movie/${id}`,
-                  state: { from: { location } },
-                }}
-              >
+              <Link to={`/movie/${id}`} state={{ from: location }}>
                 <img
                   src={
                     poster_path

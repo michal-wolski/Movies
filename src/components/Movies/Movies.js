@@ -38,7 +38,6 @@ const Movies = props => {
           onChange={onChange}
           placeholder="Search movie by title"
         ></input>
-        {/* <button type="submit">Search</button> */}
       </form>
 
       <section>
@@ -46,12 +45,7 @@ const Movies = props => {
           <ul className={moviesList}>
             {movies.map(({ id, poster_path, title }) => (
               <li key={id} className={moviesListItem}>
-                <Link
-                  to={{
-                    pathname: `/movie/${id}`,
-                    state: { from: { location } },
-                  }}
-                >
+                <Link to={`/movie/${id}`} state={{ from: location }}>
                   <img
                     src={
                       poster_path

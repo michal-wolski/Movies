@@ -6,7 +6,6 @@ import Navbar from './Navbar/Navbar';
 import MoviesDetailPage from './MovieDetailsPage/MovieDetailsPage.js';
 import Cast from './Cast/Cast';
 import Reviews from './Reviews/Reviews';
-import noImage from '../images/notFound.png';
 
 export const App = () => {
   return (
