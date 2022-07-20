@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { getMovieByQuery } from '../../api/requests';
+import noImage from '../../images/notFound.png';
 import styles from './Movies.module.css';
 
 const { moviesList, moviesListItem, form, container } = styles;
@@ -9,6 +10,8 @@ const { moviesList, moviesListItem, form, container } = styles;
 const Movies = props => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
+  console.log(location);
 
   const onChange = evt => {
     const { value } = evt.target;
@@ -45,11 +48,16 @@ const Movies = props => {
               <li key={id} className={moviesListItem}>
                 <Link
                   to={{
-                    pathname: `/movies-detail-page/${id}`,
+                    pathname: `/movie/${id}`,
+                    state: { from: { location } },
                   }}
                 >
                   <img
-                    src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                    src={
+                      poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                        : noImage
+                    }
                     alt={title}
                   />
                   <p>{title}</p>
