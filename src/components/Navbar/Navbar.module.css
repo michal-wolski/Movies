@@ -1,19 +1,29 @@
 .nav {
-  background-color: rgb(128, 96, 96);
+  font-weight: 600;
+  background-color: #00c9a7;
   display: flex;
   align-items: center;
   padding: 10px 20px;
 }
 .logo {
+  font-weight: bold;
+  font-size: 30px;
+  text-decoration: none;
   color: inherit;
 }
 .navUl {
   list-style: none;
   display: flex;
-  padding: 0 50px;
-  gap: 20px;
+  padding: 0 100px;
+  gap: 50px;
+  font-size: 20px;
 }
 
 .navLink {
+  font-size: 20px;
+  text-decoration: none;
   color: black;
+}
+.navLink:hover {
+  color: #4d8076;
 }
