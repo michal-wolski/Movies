@@ -4,23 +4,19 @@ import { useState } from 'react';
 import { getMovieByQuery } from '../../api/requests';
 import noImage from '../../images/notFound.png';
 import styles from './Movies.module.css';
+import { Input, InputGroup } from 'rsuite';
+import SearchIcon from '@rsuite/icons/Search';
 
-const { moviesList, moviesListItem, form, container } = styles;
+const { moviesList, moviesListItem, form, container, formInput } = styles;
 
 const Movies = props => {
+  const styles = {
+    width: 300,
+    marginBottom: 10,
+  };
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const location = useLocation();
-  console.log(location);
-
-  const onChange = evt => {
-    const { value } = evt.target;
-    setQuery(value);
-  };
-
-  const handleSubmitSearchMovie = evt => {
-    evt.preventDefault();
-  };
 
   useEffect(() => {
     if (!query) return;
@@ -31,13 +27,14 @@ const Movies = props => {
 
   return (
     <div className={container}>
-      <form className={form} onSubmit={handleSubmitSearchMovie}>
-        <input
+      <form className={form}>
+        <Input
           type="text"
-          id="searchInput"
-          onChange={onChange}
-          placeholder="Search movie by title"
-        ></input>
+          style={styles}
+          onChange={setQuery}
+          size="lg"
+          placeholder="Movie title"
+        />
       </form>
 
       <section>
