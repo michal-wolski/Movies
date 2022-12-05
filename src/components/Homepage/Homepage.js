@@ -5,7 +5,14 @@ import { getTrendingMovies } from 'api/requests';
 import noImage from '../../images/notFound.png';
 import styles from './Homepage.module.css';
 
-const { section, trendingList, trendingListItem, trendingListTitle } = styles;
+const {
+  trendingTitle,
+  trendingList,
+  trendingListItem,
+  trendingListTitle,
+  trendingListimg,
+  test,
+} = styles;
 
 const Homepage = props => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -17,15 +24,16 @@ const Homepage = props => {
       .catch(error => console.log(error));
   }, []);
   return (
-    <section className={section}>
+    <section>
       <>
-        {/* <h1>Trending today</h1> */}
+        <h1 className={trendingTitle}>Trending today</h1>
 
         <ul className={trendingList}>
           {trendingMovies.map(({ id, poster_path, title }) => (
             <li key={id} className={trendingListItem}>
               <Link to={`/movie/${id}`} state={{ from: location }}>
                 <img
+                  className={trendingListimg}
                   src={
                     poster_path
                       ? `https://image.tmdb.org/t/p/w500/${poster_path}`

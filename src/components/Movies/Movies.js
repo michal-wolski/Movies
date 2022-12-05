@@ -5,9 +5,17 @@ import { getMovieByQuery } from '../../api/requests';
 import noImage from '../../images/notFound.png';
 import styles from './Movies.module.css';
 import { Input, InputGroup } from 'rsuite';
-import SearchIcon from '@rsuite/icons/Search';
+// import SearchIcon from '@rsuite/icons/Search';
 
-const { moviesList, moviesListItem, form, container, formInput } = styles;
+const {
+  moviesList,
+  moviesListItem,
+  form,
+  container,
+  moviesListTitle,
+  moviesListImg,
+  formInput,
+} = styles;
 
 const Movies = props => {
   const styles = {
@@ -44,6 +52,7 @@ const Movies = props => {
               <li key={id} className={moviesListItem}>
                 <Link to={`/movie/${id}`} state={{ from: location }}>
                   <img
+                    className={moviesListImg}
                     src={
                       poster_path
                         ? `https://image.tmdb.org/t/p/w500/${poster_path}`
@@ -51,7 +60,7 @@ const Movies = props => {
                     }
                     alt={title}
                   />
-                  <p>{title}</p>
+                  <p className={moviesListTitle}>{title}</p>
                 </Link>
               </li>
             ))}
