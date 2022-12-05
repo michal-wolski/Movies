@@ -5,7 +5,7 @@ import { getTrendingMovies } from 'api/requests';
 import noImage from '../../images/notFound.png';
 import styles from './Homepage.module.css';
 
-const { section, trendingList, trendingListItem } = styles;
+const { section, trendingList, trendingListItem, trendingListTitle } = styles;
 
 const Homepage = props => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -33,7 +33,7 @@ const Homepage = props => {
                   }
                   alt={title}
                 />
-                <p>{title}</p>
+                <p className={trendingListTitle}>{title}</p>
               </Link>
             </li>
           ))}

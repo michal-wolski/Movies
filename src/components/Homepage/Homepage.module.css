@@ -1,4 +1,5 @@
 .trendingList {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -12,6 +13,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid 3px black;
+  border: solid 1px black;
   border-radius: 10px;
+  overflow: hidden;
+}
+.trendingListTitle {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 20px;
 }
