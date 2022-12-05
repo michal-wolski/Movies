@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { getMovieByQuery } from '../../api/requests';
 import noImage from '../../images/notFound.png';
 import styles from './Movies.module.css';
-import { Input, InputGroup } from 'rsuite';
+import { Input } from 'rsuite';
 // import SearchIcon from '@rsuite/icons/Search';
 
 const {
@@ -14,7 +14,6 @@ const {
   container,
   moviesListTitle,
   moviesListImg,
-  formInput,
 } = styles;
 
 const Movies = props => {

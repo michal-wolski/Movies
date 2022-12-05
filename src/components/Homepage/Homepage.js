@@ -11,7 +11,6 @@ const {
   trendingListItem,
   trendingListTitle,
   trendingListimg,
-  test,
 } = styles;
 
 const Homepage = props => {
