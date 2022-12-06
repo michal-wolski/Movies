@@ -34,7 +34,7 @@ const MoviesDetailPage = () => {
         <div className={wrapper}>
           <div>
             <h1>{original_title}</h1>
-            <p>User Score: {vote_average * 10} %</p>
+            <p>User Score: {vote_average} %</p>
             <h2>Overview</h2>
             <p>{overview}</p>
             {genres && (
@@ -52,9 +52,9 @@ const MoviesDetailPage = () => {
               <li>
                 <Link to="cast">Cast</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="reviews">Reviews</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <Outlet />

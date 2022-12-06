@@ -30,7 +30,7 @@ const Homepage = props => {
         <ul className={trendingList}>
           {trendingMovies.map(({ id, poster_path, title }) => (
             <li key={id} className={trendingListItem}>
-              <Link to={`/movie/${id}`} state={{ from: location }}>
+              <Link to={`/movies/movie/${id}`} state={{ from: location }}>
                 <img
                   className={trendingListimg}
                   src={

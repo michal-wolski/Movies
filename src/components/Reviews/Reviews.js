@@ -13,6 +13,7 @@ const Reviews = () => {
         if (data.results.length === 0) {
           toast.info('Sorry, reviews is not available');
         }
+        console.log(reviews);
         setReviews(data.results);
       })
       .catch(error =>

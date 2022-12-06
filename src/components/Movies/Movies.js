@@ -49,7 +49,7 @@ const Movies = props => {
           <ul className={moviesList}>
             {movies.map(({ id, poster_path, title }) => (
               <li key={id} className={moviesListItem}>
-                <Link to={`/movie/${id}`} state={{ from: location }}>
+                <Link to={`/Movies/movie/${id}`} state={{ from: location }}>
                   <img
                     className={moviesListImg}
                     src={
