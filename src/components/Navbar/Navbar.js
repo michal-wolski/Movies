@@ -5,17 +5,17 @@ import styles from './Navbar.module.css';
 const Navbar = () => {
   return (
     <nav className={styles.nav}>
-      <Link className={styles.logo} to="/">
+      <Link className={styles.logo} to="Movies/">
         Filmoteka
       </Link>
       <ul className={styles.navUl}>
         <li className={styles.navLi}>
-          <Link className={styles.navLink} to="/">
+          <Link className={styles.navLink} to="Movies/">
             Homepage
           </Link>
         </li>
         <li className={styles.navLi}>
-          <Link className={styles.navLink} to="/movies">
+          <Link className={styles.navLink} to="Movies/movies">
             Movies
           </Link>
         </li>
