@@ -2,10 +2,25 @@
   display: flex;
   padding: 20px 20px;
   justify-content: center;
+  flex-direction: row-reverse;
   gap: 30px;
 }
 .wrapper {
   display: flex;
   flex-wrap: wrap;
   width: 750px;
+  max-height: 1000px;
+  overflow: auto;
+}
+.score {
+  font-size: 20px;
+}
+.overviewText {
+  font-size: 25px;
+}
+.genresList {
+  font-size: 25px;
+}
+.informationList {
+  font-size: 25px;
 }

@@ -4,7 +4,8 @@ import { getMovieById } from 'api/requests';
 import { BackLink } from 'utils/BackLink';
 import styles from './MovieDetailsPage.module.css';
 
-const { container, wrapper } = styles;
+const { container, wrapper, score, overviewText, genresList, informationList } =
+  styles;
 
 const MoviesDetailPage = () => {
   const { movieId } = useParams();
@@ -23,8 +24,8 @@ const MoviesDetailPage = () => {
     movie;
   return (
     <>
-      <BackLink to={backLinkHref}>Back to list</BackLink>
       <div className={container}>
+        <BackLink to={backLinkHref}>Back to list</BackLink>
         <div>
           <img
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
@@ -34,21 +35,21 @@ const MoviesDetailPage = () => {
         <div className={wrapper}>
           <div>
             <h1>{original_title}</h1>
-            <p>User Score: {vote_average} %</p>
+            <p className={score}>User Score: {vote_average} %</p>
             <h2>Overview</h2>
-            <p>{overview}</p>
+            <p className={overviewText}>{overview}</p>
             {genres && (
               <>
                 <h3>Genres</h3>
-                <ul>
+                <ul className={genresList}>
                   {genres.map(({ id, name }) => (
                     <li key={id}>{name}</li>
                   ))}
                 </ul>
               </>
             )}
-            <p>Additional information</p>
-            <ul>
+            <h3>Additional information</h3>
+            <ul className={informationList}>
               <li>
                 <Link to="cast">Cast</Link>
               </li>
